@@ -1,0 +1,339 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A10001 /* HomePodControlApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10001 /* HomePodControlApp.swift */; };
+		A10002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10002 /* ContentView.swift */; };
+		A10003 /* NowPlayingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10003 /* NowPlayingView.swift */; };
+		A10004 /* VolumeControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10004 /* VolumeControlView.swift */; };
+		A10005 /* StationPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10005 /* StationPickerView.swift */; };
+		A10006 /* DevicePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10006 /* DevicePickerView.swift */; };
+		A10007 /* MusicBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10007 /* MusicBridge.swift */; };
+		A10008 /* HomePodManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10008 /* HomePodManager.swift */; };
+		A10009 /* RadioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10009 /* RadioStation.swift */; };
+		A10010 /* NowPlayingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10010 /* NowPlayingInfo.swift */; };
+		A10011 /* HomePodDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10011 /* HomePodDevice.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B10001 /* HomePodControlApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePodControlApp.swift; sourceTree = "<group>"; };
+		B10002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B10003 /* NowPlayingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingView.swift; sourceTree = "<group>"; };
+		B10004 /* VolumeControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeControlView.swift; sourceTree = "<group>"; };
+		B10005 /* StationPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationPickerView.swift; sourceTree = "<group>"; };
+		B10006 /* DevicePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicePickerView.swift; sourceTree = "<group>"; };
+		B10007 /* MusicBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicBridge.swift; sourceTree = "<group>"; };
+		B10008 /* HomePodManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePodManager.swift; sourceTree = "<group>"; };
+		B10009 /* RadioStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioStation.swift; sourceTree = "<group>"; };
+		B10010 /* NowPlayingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingInfo.swift; sourceTree = "<group>"; };
+		B10011 /* HomePodDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePodDevice.swift; sourceTree = "<group>"; };
+		C10001 /* HomePodControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomePodControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D10001 /* HomePodControl.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomePodControl.entitlements; sourceTree = "<group>"; };
+		D10002 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E10001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F10001 = {
+			isa = PBXGroup;
+			children = (
+				F10002 /* HomePodControl/Sources */,
+				F10007 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F10002 /* HomePodControl/Sources */ = {
+			isa = PBXGroup;
+			children = (
+				D10001 /* HomePodControl.entitlements */,
+				D10002 /* Info.plist */,
+				F10003 /* App */,
+				F10004 /* Views */,
+				F10005 /* Services */,
+				F10006 /* Models */,
+			);
+			path = HomePodControl/Sources;
+			sourceTree = "<group>";
+		};
+		F10003 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B10001 /* HomePodControlApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F10004 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B10002 /* ContentView.swift */,
+				B10003 /* NowPlayingView.swift */,
+				B10004 /* VolumeControlView.swift */,
+				B10005 /* StationPickerView.swift */,
+				B10006 /* DevicePickerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F10005 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B10007 /* MusicBridge.swift */,
+				B10008 /* HomePodManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F10006 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B10009 /* RadioStation.swift */,
+				B10010 /* NowPlayingInfo.swift */,
+				B10011 /* HomePodDevice.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F10007 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C10001 /* HomePodControl.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		G10001 /* HomePodControl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = H10003 /* Build configuration list for PBXNativeTarget "HomePodControl" */;
+			buildPhases = (
+				G10002 /* Sources */,
+				E10001 /* Frameworks */,
+				G10003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HomePodControl;
+			productName = HomePodControl;
+			productReference = C10001 /* HomePodControl.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		P10001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+			};
+			buildConfigurationList = H10001 /* Build configuration list for PBXProject "HomePodControl" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F10001;
+			productRefGroup = F10007 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				G10001 /* HomePodControl */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		G10003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		G10002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A10001 /* HomePodControlApp.swift in Sources */,
+				A10002 /* ContentView.swift in Sources */,
+				A10003 /* NowPlayingView.swift in Sources */,
+				A10004 /* VolumeControlView.swift in Sources */,
+				A10005 /* StationPickerView.swift in Sources */,
+				A10006 /* DevicePickerView.swift in Sources */,
+				A10007 /* MusicBridge.swift in Sources */,
+				A10008 /* HomePodManager.swift in Sources */,
+				A10009 /* RadioStation.swift in Sources */,
+				A10010 /* NowPlayingInfo.swift in Sources */,
+				A10011 /* HomePodDevice.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		H10002 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		H10004 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		H10005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HomePodControl/Sources/HomePodControl.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GWTLQ69ZJD;
+				ENABLE_HARDENED_RUNTIME = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HomePodControl/Sources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "HomePod Control";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "HomePod Control needs to communicate with Music.app to control playback and AirPlay devices.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.homepodcontrol.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		H10006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HomePodControl/Sources/HomePodControl.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GWTLQ69ZJD;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = HomePodControl/Sources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "HomePod Control";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
+				INFOPLIST_KEY_NSAppleEventsUsageDescription = "HomePod Control needs to communicate with Music.app to control playback and AirPlay devices.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.homepodcontrol.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		H10001 /* Build configuration list for PBXProject "HomePodControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				H10002 /* Debug */,
+				H10004 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		H10003 /* Build configuration list for PBXNativeTarget "HomePodControl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				H10005 /* Debug */,
+				H10006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = P10001 /* Project object */;
+}
