@@ -202,7 +202,10 @@ actor MusicBridge {
         tell application "Music"
             set output to ""
             repeat with p in user playlists
-                set output to output & name of p & linefeed
+                set k to special kind of p as string
+                if k is "none" then
+                    set output to output & name of p & linefeed
+                end if
             end repeat
             return output
         end tell
@@ -212,6 +215,25 @@ actor MusicBridge {
             .components(separatedBy: "\n")
             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
             .filter { !$0.isEmpty }
+    }
+
+    // MARK: - Radio Stations
+
+    /// Plays a radio station via the music:// URL scheme
+    func playRadioStation(url: String, onDevice deviceName: String) async throws {
+        let escapedDevice = escapeForAppleScript(deviceName)
+        let script = """
+        tell application "Music"
+            stop
+            delay 0.5
+            set targetDevice to AirPlay device "\(escapedDevice)"
+            set current AirPlay devices to {targetDevice}
+            open location "\(url)"
+            delay 3
+            play
+        end tell
+        """
+        try await runAppleScript(script)
     }
 
     // MARK: - Script Execution

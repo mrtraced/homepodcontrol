@@ -18,6 +18,7 @@
 		A10009 /* RadioStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10009 /* RadioStation.swift */; };
 		A10010 /* NowPlayingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10010 /* NowPlayingInfo.swift */; };
 		A10011 /* HomePodDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10011 /* HomePodDevice.swift */; };
+		A10012 /* PlaylistPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10012 /* PlaylistPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		B10010 /* NowPlayingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingInfo.swift; sourceTree = "<group>"; };
 		B10011 /* HomePodDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePodDevice.swift; sourceTree = "<group>"; };
 		C10001 /* HomePodControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomePodControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B10012 /* PlaylistPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistPickerView.swift; sourceTree = "<group>"; };
 		D10001 /* HomePodControl.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HomePodControl.entitlements; sourceTree = "<group>"; };
 		D10002 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 				B10004 /* VolumeControlView.swift */,
 				B10005 /* StationPickerView.swift */,
 				B10006 /* DevicePickerView.swift */,
+				B10012 /* PlaylistPickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				A10009 /* RadioStation.swift in Sources */,
 				A10010 /* NowPlayingInfo.swift in Sources */,
 				A10011 /* HomePodDevice.swift in Sources */,
+				A10012 /* PlaylistPickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,54 +6,56 @@ struct StationPickerView: View {
     let onSelect: (RadioStation) -> Void
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Radio Stations")
-                .font(.headline)
-                .padding(.horizontal)
+        ScrollView {
+            LazyVStack(spacing: 2) {
+                ForEach(stations) { station in
+                    Button {
+                        onSelect(station)
+                    } label: {
+                        HStack(spacing: 10) {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 6)
+                                    .fill(station.id == currentStation?.id
+                                          ? Color.accentColor.opacity(0.2)
+                                          : Color.secondary.opacity(0.1))
+                                    .frame(width: 32, height: 32)
+                                Image(systemName: station.artworkSystemImage)
+                                    .font(.caption)
+                                    .foregroundStyle(station.id == currentStation?.id
+                                                     ? Color.accentColor
+                                                     : .secondary)
+                            }
 
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 10) {
-                    ForEach(stations) { station in
-                        StationCard(
-                            station: station,
-                            isSelected: station.id == currentStation?.id,
-                            onSelect: { onSelect(station) }
-                        )
+                            VStack(alignment: .leading, spacing: 1) {
+                                Text(station.name)
+                                    .font(.subheadline)
+                                    .fontWeight(station.id == currentStation?.id ? .semibold : .regular)
+                                Text(station.description)
+                                    .font(.caption2)
+                                    .foregroundStyle(.secondary)
+                                    .lineLimit(1)
+                            }
+
+                            Spacer()
+
+                            if station.id == currentStation?.id {
+                                Image(systemName: "waveform")
+                                    .font(.caption)
+                                    .foregroundStyle(Color.accentColor)
+                            } else {
+                                Image(systemName: "play.fill")
+                                    .font(.caption2)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                        .padding(.horizontal, 10)
+                        .padding(.vertical, 6)
+                        .contentShape(Rectangle())
                     }
+                    .buttonStyle(.plain)
                 }
-                .padding(.horizontal)
             }
+            .padding(.horizontal, 8)
         }
-    }
-}
-
-struct StationCard: View {
-    let station: RadioStation
-    let isSelected: Bool
-    let onSelect: () -> Void
-
-    var body: some View {
-        Button(action: onSelect) {
-            VStack(spacing: 6) {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .fill(isSelected ? Color.accentColor.opacity(0.2) : Color.secondary.opacity(0.1))
-                        .frame(width: 64, height: 64)
-
-                    Image(systemName: station.artworkSystemImage)
-                        .font(.title2)
-                        .foregroundStyle(isSelected ? Color.accentColor : .secondary)
-                }
-
-                Text(station.name)
-                    .font(.caption2)
-                    .lineLimit(2)
-                    .multilineTextAlignment(.center)
-                    .frame(width: 70)
-                    .foregroundStyle(isSelected ? .primary : .secondary)
-            }
-        }
-        .buttonStyle(.plain)
-        .help(station.description)
     }
 }

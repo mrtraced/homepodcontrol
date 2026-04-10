@@ -10,6 +10,7 @@ final class HomePodManager {
     var nowPlaying: NowPlayingInfo = .empty
     var selectedDevice: HomePodDevice?
     var availableDevices: [HomePodDevice] = []
+    var currentStation: RadioStation?
     var isConnected: Bool = false
     var errorMessage: String?
     var artworkImage: NSImage?
@@ -78,9 +79,26 @@ final class HomePodManager {
             return
         }
         do {
+            self.currentStation = nil
             try await bridge.playPlaylist(named: name, onDevice: device.name)
             self.errorMessage = nil
             try? await Task.sleep(for: .seconds(1))
+            await refreshNowPlaying()
+        } catch {
+            self.errorMessage = error.localizedDescription
+        }
+    }
+
+    func playStation(_ station: RadioStation) async {
+        guard let device = selectedDevice else {
+            self.errorMessage = "Select a device first"
+            return
+        }
+        do {
+            self.currentStation = station
+            try await bridge.playRadioStation(url: station.musicURL, onDevice: device.name)
+            self.errorMessage = nil
+            try? await Task.sleep(for: .seconds(3))
             await refreshNowPlaying()
         } catch {
             self.errorMessage = error.localizedDescription
@@ -144,7 +162,9 @@ final class HomePodManager {
     func toggleLove() async {
         do {
             try await bridge.toggleLoveCurrentTrack()
-            self.nowPlaying.isLoved.toggle()
+            // Wait for Apple Music to sync the change, then re-read actual state
+            try? await Task.sleep(for: .seconds(1))
+            await refreshNowPlaying()
         } catch {
             self.errorMessage = error.localizedDescription
         }

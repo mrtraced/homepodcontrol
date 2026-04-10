@@ -5,67 +5,37 @@ struct RadioStation: Identifiable, Hashable {
     let name: String
     let description: String
     let artworkSystemImage: String
+    let musicURL: String
 
     static let appleMusic: [RadioStation] = [
+        // Live radio stations (verified working)
         RadioStation(
-            id: "apple-music-1",
+            id: "ra.978194965",
             name: "Apple Music 1",
             description: "The new music that matters",
-            artworkSystemImage: "radio"
+            artworkSystemImage: "radio",
+            musicURL: "music://music.apple.com/us/station/apple-music-1/ra.978194965"
         ),
         RadioStation(
-            id: "apple-music-hits",
+            id: "ra.1498155548",
             name: "Apple Music Hits",
             description: "Songs you know and love",
-            artworkSystemImage: "star.circle"
+            artworkSystemImage: "star.circle",
+            musicURL: "music://music.apple.com/us/station/apple-music-hits/ra.1498155548"
         ),
         RadioStation(
-            id: "apple-music-country",
+            id: "ra.1498157166",
             name: "Apple Music Country",
             description: "Where it sounds like home",
-            artworkSystemImage: "guitars"
+            artworkSystemImage: "guitars",
+            musicURL: "music://music.apple.com/us/station/apple-music-country/ra.1498157166"
         ),
         RadioStation(
-            id: "apple-music-chill",
-            name: "Chill",
+            id: "ra.1740614260",
+            name: "Apple Music Chill",
             description: "Music to unwind to",
-            artworkSystemImage: "leaf"
-        ),
-        RadioStation(
-            id: "apple-music-classical",
-            name: "Classical",
-            description: "From icons to icons in the making",
-            artworkSystemImage: "music.note"
-        ),
-        RadioStation(
-            id: "apple-music-jazz",
-            name: "Jazz",
-            description: "Jazz for every mood",
-            artworkSystemImage: "music.quarternote.3"
-        ),
-        RadioStation(
-            id: "apple-music-electronic",
-            name: "Electronic",
-            description: "Electronic music from every angle",
-            artworkSystemImage: "waveform"
-        ),
-        RadioStation(
-            id: "apple-music-hip-hop",
-            name: "Hip-Hop",
-            description: "Where hip-hop lives",
-            artworkSystemImage: "mic"
-        ),
-        RadioStation(
-            id: "apple-music-rock",
-            name: "Rock",
-            description: "Rock in all its forms",
-            artworkSystemImage: "bolt"
-        ),
-        RadioStation(
-            id: "apple-music-pop",
-            name: "Pop",
-            description: "Today's biggest pop hits",
-            artworkSystemImage: "sparkles"
+            artworkSystemImage: "leaf",
+            musicURL: "music://music.apple.com/us/station/apple-music-chill/ra.1740614260"
         ),
     ]
 }

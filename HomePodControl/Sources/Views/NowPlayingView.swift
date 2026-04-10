@@ -78,14 +78,14 @@ struct NowPlayingView: View {
                 }
                 .buttonStyle(.plain)
 
-                // Love
+                // Favorite (star)
                 Button(action: onLove) {
-                    Image(systemName: nowPlaying.isLoved ? "heart.fill" : "heart")
+                    Image(systemName: nowPlaying.isLoved ? "star.fill" : "star")
                         .font(.title3)
-                        .foregroundStyle(nowPlaying.isLoved ? .red : .secondary)
+                        .foregroundStyle(nowPlaying.isLoved ? .yellow : .secondary)
                 }
                 .buttonStyle(.plain)
-                .help(nowPlaying.isLoved ? "Remove from Loved" : "Love this track")
+                .help(nowPlaying.isLoved ? "Remove from Favorites" : "Add to Favorites")
             }
         }
     }
