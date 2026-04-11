@@ -8,6 +8,7 @@ struct NowPlayingView: View {
     let onPrevious: () -> Void
     let onLove: () -> Void
     let onDislike: () -> Void
+    let onAddToLibrary: () -> Void
 
     var body: some View {
         VStack(spacing: 12) {
@@ -39,6 +40,17 @@ struct NowPlayingView: View {
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
+
+                // Add to Library
+                if nowPlaying.trackName != "Not Playing" {
+                    Button(action: onAddToLibrary) {
+                        Image(systemName: "plus.circle")
+                            .font(.title3)
+                            .foregroundStyle(.secondary)
+                    }
+                    .buttonStyle(.plain)
+                    .help("Add to Library")
+                }
             }
             .padding(.horizontal)
 

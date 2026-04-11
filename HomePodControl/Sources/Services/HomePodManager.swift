@@ -170,6 +170,15 @@ final class HomePodManager {
         }
     }
 
+    func addToLibrary() async {
+        do {
+            try await bridge.addCurrentTrackToLibrary()
+            self.errorMessage = nil
+        } catch {
+            self.errorMessage = error.localizedDescription
+        }
+    }
+
     func dislike() async {
         do {
             try await bridge.dislikeCurrentTrack()

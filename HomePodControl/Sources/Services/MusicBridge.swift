@@ -195,6 +195,15 @@ actor MusicBridge {
         """)
     }
 
+    /// Adds the current track to the user's library
+    func addCurrentTrackToLibrary() async throws {
+        try await runAppleScript("""
+        tell application "Music"
+            duplicate current track to library playlist 1 of source 1
+        end tell
+        """)
+    }
+
     // MARK: - Playlists
 
     func getPlaylists() async throws -> [String] {

@@ -33,7 +33,8 @@ struct ContentView: View {
                 onNext: { Task { await manager.nextTrack() } },
                 onPrevious: { Task { await manager.previousTrack() } },
                 onLove: { Task { await manager.toggleLove() } },
-                onDislike: { Task { await manager.dislike() } }
+                onDislike: { Task { await manager.dislike() } },
+                onAddToLibrary: { Task { await manager.addToLibrary() } }
             )
             .padding(.vertical, 10)
 
