@@ -10,83 +10,105 @@ struct NowPlayingView: View {
     let onDislike: () -> Void
 
     var body: some View {
-        VStack(spacing: 16) {
-            // Artwork
-            artworkView
-                .frame(width: 200, height: 200)
-                .clipShape(RoundedRectangle(cornerRadius: 12))
-                .shadow(color: .black.opacity(0.3), radius: 8, y: 4)
+        VStack(spacing: 12) {
+            // Artwork + track info side by side for compact layout
+            HStack(spacing: 14) {
+                // Artwork
+                artworkView
+                    .frame(width: 80, height: 80)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .shadow(color: .black.opacity(0.2), radius: 4, y: 2)
 
-            // Track Info
-            VStack(spacing: 4) {
-                Text(nowPlaying.trackName)
-                    .font(.headline)
-                    .lineLimit(1)
-                    .foregroundStyle(.primary)
+                // Track Info
+                VStack(alignment: .leading, spacing: 3) {
+                    Text(nowPlaying.trackName)
+                        .font(.system(.headline, design: .rounded))
+                        .lineLimit(2)
+                        .foregroundStyle(.primary)
 
-                Text(nowPlaying.artistName)
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                    .lineLimit(1)
-
-                if !nowPlaying.albumName.isEmpty {
-                    Text(nowPlaying.albumName)
-                        .font(.caption)
-                        .foregroundStyle(.tertiary)
+                    Text(nowPlaying.artistName)
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
                         .lineLimit(1)
-                }
-            }
-            .frame(maxWidth: .infinity)
 
-            // Progress bar (read-only for now)
+                    if !nowPlaying.albumName.isEmpty {
+                        Text(nowPlaying.albumName)
+                            .font(.caption)
+                            .foregroundStyle(.tertiary)
+                            .lineLimit(1)
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .padding(.horizontal)
+
+            // Progress bar
             if nowPlaying.duration > 0 {
-                ProgressView(value: nowPlaying.position, total: nowPlaying.duration)
-                    .tint(.accentColor)
-                    .padding(.horizontal)
+                VStack(spacing: 2) {
+                    ProgressView(value: nowPlaying.position, total: nowPlaying.duration)
+                        .tint(.accentColor)
+                    HStack {
+                        Text(formatTime(nowPlaying.position))
+                        Spacer()
+                        Text("-\(formatTime(nowPlaying.duration - nowPlaying.position))")
+                    }
+                    .font(.system(.caption2, design: .monospaced))
+                    .foregroundStyle(.tertiary)
+                }
+                .padding(.horizontal)
             }
 
             // Playback Controls
-            HStack(spacing: 24) {
+            HStack(spacing: 20) {
                 // Dislike
                 Button(action: onDislike) {
                     Image(systemName: "hand.thumbsdown")
-                        .font(.title3)
+                        .font(.body)
                         .foregroundStyle(.secondary)
+                        .frame(width: 28, height: 28)
                 }
                 .buttonStyle(.plain)
                 .help("Dislike & Skip")
 
+                Spacer()
+
                 // Previous
                 Button(action: onPrevious) {
                     Image(systemName: "backward.fill")
-                        .font(.title2)
+                        .font(.title3)
                 }
                 .buttonStyle(.plain)
 
                 // Play/Pause
                 Button(action: onPlayPause) {
                     Image(systemName: nowPlaying.isPlaying ? "pause.circle.fill" : "play.circle.fill")
-                        .font(.system(size: 44))
+                        .font(.system(size: 40))
                         .symbolRenderingMode(.hierarchical)
+                        .foregroundStyle(.primary)
                 }
                 .buttonStyle(.plain)
+                .keyboardShortcut(.space, modifiers: [])
 
                 // Next
                 Button(action: onNext) {
                     Image(systemName: "forward.fill")
-                        .font(.title2)
+                        .font(.title3)
                 }
                 .buttonStyle(.plain)
+
+                Spacer()
 
                 // Favorite (star)
                 Button(action: onLove) {
                     Image(systemName: nowPlaying.isLoved ? "star.fill" : "star")
-                        .font(.title3)
+                        .font(.body)
                         .foregroundStyle(nowPlaying.isLoved ? .yellow : .secondary)
+                        .frame(width: 28, height: 28)
                 }
                 .buttonStyle(.plain)
                 .help(nowPlaying.isLoved ? "Remove from Favorites" : "Add to Favorites")
             }
+            .padding(.horizontal)
         }
     }
 
@@ -98,12 +120,24 @@ struct NowPlayingView: View {
                 .aspectRatio(contentMode: .fill)
         } else {
             ZStack {
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(.quaternary)
+                RoundedRectangle(cornerRadius: 10)
+                    .fill(
+                        LinearGradient(
+                            colors: [.purple.opacity(0.3), .blue.opacity(0.2)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
                 Image(systemName: "music.note")
-                    .font(.system(size: 48))
+                    .font(.system(size: 28))
                     .foregroundStyle(.secondary)
             }
         }
+    }
+
+    private func formatTime(_ seconds: Double) -> String {
+        let mins = Int(seconds) / 60
+        let secs = Int(seconds) % 60
+        return String(format: "%d:%02d", mins, secs)
     }
 }

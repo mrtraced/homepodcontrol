@@ -8,10 +8,11 @@ enum SourceTab: String, CaseIterable {
 struct ContentView: View {
     @State private var manager = HomePodManager()
     @State private var selectedTab: SourceTab = .playlists
+    private let mediaKeyHandler = MediaKeyHandler()
 
     var body: some View {
         VStack(spacing: 0) {
-            // Device selector
+            // Header with device selector
             DevicePickerView(
                 devices: manager.availableDevices,
                 selectedDevice: manager.selectedDevice,
@@ -19,11 +20,12 @@ struct ContentView: View {
                 onSelect: { device in Task { await manager.selectDevice(device) } },
                 onRefresh: { Task { await manager.refreshDevices() } }
             )
-            .padding(.top, 12)
+            .padding(.top, 10)
+            .padding(.bottom, 6)
 
-            Divider().padding(.horizontal).padding(.top, 8)
+            Divider().padding(.horizontal)
 
-            // Now Playing (compact)
+            // Now Playing
             NowPlayingView(
                 nowPlaying: manager.nowPlaying,
                 artwork: manager.artworkImage,
@@ -33,16 +35,15 @@ struct ContentView: View {
                 onLove: { Task { await manager.toggleLove() } },
                 onDislike: { Task { await manager.dislike() } }
             )
-            .padding(.top, 8)
+            .padding(.vertical, 10)
 
             // Volume
             VolumeControlView(
                 volume: $manager.nowPlaying.volume,
                 onVolumeChange: { vol in Task { await manager.setVolume(vol) } }
             )
-            .padding(.top, 4)
 
-            Divider().padding(.horizontal).padding(.top, 8)
+            Divider().padding(.horizontal).padding(.top, 6)
 
             // Source tabs
             Picker("Source", selection: $selectedTab) {
@@ -70,18 +71,37 @@ struct ContentView: View {
                 .padding(.top, 4)
             }
 
-            // Error display
-            if let error = manager.errorMessage {
-                Text(error)
-                    .font(.caption)
-                    .foregroundStyle(.red)
-                    .padding(.horizontal)
-                    .padding(.bottom, 4)
-                    .lineLimit(2)
+            // Footer
+            HStack {
+                // Error display
+                if let error = manager.errorMessage {
+                    Text(error)
+                        .font(.caption2)
+                        .foregroundStyle(.red)
+                        .lineLimit(1)
+                }
+                Spacer()
+                Button {
+                    NSApplication.shared.terminate(nil)
+                } label: {
+                    Image(systemName: "power")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+                .buttonStyle(.plain)
+                .help("Quit HomePod Control")
             }
+            .padding(.horizontal, 12)
+            .padding(.vertical, 6)
         }
-        .frame(width: 340, height: 640)
-        .onAppear { manager.startPolling() }
+        .frame(width: 340, height: 580)
+        .onAppear {
+            manager.startPolling()
+            mediaKeyHandler.attach(to: manager)
+        }
         .onDisappear { manager.stopPolling() }
+        .onChange(of: manager.nowPlaying) {
+            mediaKeyHandler.updateNowPlayingInfo()
+        }
     }
 }

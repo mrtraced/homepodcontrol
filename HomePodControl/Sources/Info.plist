@@ -4,5 +4,7 @@
 <dict>
 	<key>NSAppleEventsUsageDescription</key>
 	<string>HomePod Control needs to communicate with Music.app to control playback and AirPlay devices.</string>
+	<key>LSUIElement</key>
+	<true/>
 </dict>
 </plist>
